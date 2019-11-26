@@ -9,10 +9,21 @@
 	   		<servlet-name>frontend</servlet-name>
 	   		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	   	</servlet>
+		<servlet>
+			<description>
+			</description>
+			<display-name>AdminController</display-name>
+			<servlet-name>AdminController</servlet-name>
+			<servlet-class>com.wfmanagement.controllers.AdminController</servlet-class>
+		</servlet>
 	   
 	   <servlet-mapping>
 	   		<servlet-name>frontend</servlet-name>
 	   		<url-pattern>/</url-pattern>
+	   </servlet-mapping>
+	   <servlet-mapping>
+	   	<servlet-name>AdminController</servlet-name>
+	   	<url-pattern>/AdminController</url-pattern>
 	   </servlet-mapping>
 	   
 </web-app>

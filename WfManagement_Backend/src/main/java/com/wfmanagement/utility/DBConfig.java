@@ -62,6 +62,9 @@ public class DBConfig {
 			return txManager;
 		
 		}
+		public static java.sql.Connection getConn() {
+			return null;
+		}
 
 	
 

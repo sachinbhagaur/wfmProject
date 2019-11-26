@@ -7,7 +7,7 @@ public interface ResourceDetailsDao {
 	
 	public boolean addResource(ResourceDetail rdObj);
 	public List <ResourceDetail> getAllResourceDetail();
-	//public ResourceDetail loginValidation(String UserName ,String Password);
+	public ResourceDetail loginValidation(int username ,String Password);
     public ResourceDetail getResourceById(int rId);
    
 }

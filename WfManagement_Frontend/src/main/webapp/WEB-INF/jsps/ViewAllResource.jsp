@@ -8,74 +8,43 @@
 
 <html>
 	<head>
-		<title>Spring Web MVC</title>
-		<style>
-      .error {
-         color: #ff0000;
-      }
-      .errorblock {
-         color: #000;
-         background-color: #ffEEEE;
-         border: 3px solid #ff0000;
-         padding: 8px;
-         margin: 16px;
-      }
-   </style>
+		<title>View All Resource</title>
+		
 	</head>
 	<body>
-		<h1 style="text-align: center;font-family: verdana;color: green">
-			${myData}
-		</h1>
+	     <div align="center">
+		<h1>View All Resource</h1>
 		
-		<hr/>
+		<h1>Resource List</h1>
 		
-		<div align="center">
-			<h1>${formLabel}</h1>
+		<table border="1">
+		<tr>
+			<th>R Id</th>
+			<th>R Name</th>
+			<th>R Gender</th>
+			<th>R Role</th>
+			<th>R Email</th>
+			<th>R Experience</th>
+			<th>R Skill</th>
+			<th>R Status</th>
 			
-			
-			
-			<f:form action="${path}/registerUser" method="post" modelAttribute="userObj">
-			 <f:errors path = "*" cssClass = "errorblock" element = "div" />
-			<table>
-				<tr>
-					<td>User Id : </td>
-					<td>
-					<f:input path="userId"/>
-					</td>
-					<td>
-					<f:errors path="userId" cssClass = "error" />
-					
-					</td>
-				</tr>
-				<tr>
-					<td>User Name : </td>
-					<td>
-					<f:input path="userName"/>
-					</td>
-					<td>
-						<f:errors path="userName" cssClass = "error" />
-					</td>
-				</tr>
+		</tr>
+		<c:forEach items="${resources}" var="userObj">
+			<tr>
+				<td>${userObj.resourceId}</td>
+				<td>${userObj.resourceName}</td>
+				<td>${userObj.resourceGender}</td>
+				<td>${userObj.resourceRoleObj.roleType}</td>
+				<td>${userObj.resourceEmail}</td>
+				<td>${userObj.resourceExperience}</td>
+				<td>${userObj.resourceSkills}</td>
+				<td>${userObj.resourceStatus}</td>
 				
-				<c:if test="${userObj.password eq null || empty userObj.password}">
-				<tr>
-					<td>Password : </td>
-					<td>
-					<f:password path="password"/>
-					<f:errors path="password"/>
-					</td>
-				</tr>
-				</c:if>
 				
-				<tr>
-					<td></td>
-					<td>
-						<input type="submit" value="${btnLabel}"/>
-					</td>
-				</tr>
-			</table>
-			</f:form>
-		</div>
+			</tr>
+		</c:forEach>
+		</table>
+	</div>
 		
 	</body>
 </html>

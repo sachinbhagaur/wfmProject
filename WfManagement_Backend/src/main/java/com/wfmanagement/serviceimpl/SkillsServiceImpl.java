@@ -11,4 +11,8 @@ public class SkillsServiceImpl implements SkillsService {
 		return null;
 	}
 
+	public void addSkill(Skill skillObj) {
+	
+	}
+
 }

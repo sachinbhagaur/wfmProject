@@ -5,18 +5,19 @@
 
 <html>
 	<head>
-		<title>Welcome User To Home Page</title>
-		<link href="${css}/sample.css" rel="stylesheet">
+	
+		<title>Welcome To Home Page</title>
+		
 	</head>
 	<body>
+	     <h1> WFM Home Page</h1>
 		<h1 style="text-align: center;font-family: verdana;color: yellow">
 			${myData}
 		</h1>
 		
 		<hr/>
 		
-		<a href="getSignInForm">Log In</a><br/>
-		<a href="getSignUpForm">Sign Up</a><br/>
+		<a href="getLoginPage">Login</a><br/>
 		
 	</body>
 </html>

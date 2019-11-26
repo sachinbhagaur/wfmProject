@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wfmanagement.daos.ResourceDetailsDao;
 import com.wfmanagement.models.ResourceDetail;
 
-@Repository("resourceDetail")
+@Repository("resourcedetail")
 @Transactional
 public class ResourceDetailDaoImpl implements ResourceDetailsDao {
 	
@@ -43,15 +43,15 @@ public class ResourceDetailDaoImpl implements ResourceDetailsDao {
              
       return null;
 }
-	/*public ResourceDetail loginValidation(String UserName, String Password) {
+	public ResourceDetail loginValidation(int username, String Pass) {
 		
 		try {
             Session session=sessionFactory.getCurrentSession();
-            ResourceDetail rObj=session.get(ResourceDetail.class , rId);
+            ResourceDetail rObj=session.get(ResourceDetail.class , username);
             
      
             if(rObj!=null){
-                  if(rObj.getrPassward().equals(rPassward)){
+                  if(rObj.getResourcePassword().equals(Pass)){
                          return rObj;
                   }
                }
@@ -60,16 +60,11 @@ public class ResourceDetailDaoImpl implements ResourceDetailsDao {
                   e.printStackTrace();
             }
                return null ;
-	}*/
-
-
-	public ResourceDetail getResourceById(int rId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 
+	public ResourceDetail getResourceById(int rId) {
 	
-	
-	
+		return null;
+	}
 }

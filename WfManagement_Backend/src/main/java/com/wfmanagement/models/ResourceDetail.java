@@ -4,10 +4,15 @@ package com.wfmanagement.models;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -15,6 +20,8 @@ import javax.persistence.Table;
 public class ResourceDetail {
 	
 	@Id
+	@SequenceGenerator(initialValue=601, allocationSize=1, name = "myRDSeq",sequenceName="resourceID_Seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="myRDSeq")
 	@Column(name="RESOURCE_ID")
 	private int resourceId;
 	
@@ -22,7 +29,7 @@ public class ResourceDetail {
 	private String resourceName;
 	
 	@OneToOne
-	@JoinColumn(name="RESOURCE_ROLE_ID")
+	@JoinColumn(name="RESOURCE_ROLE_ID",insertable=false,updatable=false)
 	private Role resourceRoleObj;
 	
 	@Column(name="RESOURCE_EXPERIENCE")
@@ -35,7 +42,8 @@ public class ResourceDetail {
 	private String resourceEmail;
 	
 	@Column(name="RESOURCE_DOB")
-	private String resourceDob;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date resourceDob;
 	
 	@Column(name="RESOURCE_GENDER")
 	private String resourceGender;
@@ -57,10 +65,18 @@ public class ResourceDetail {
 	private Project resourceProjectObj;
 	
 	@Column(name="RESOURCE_START_DATE")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date projectStartDate;
 	
+	
 	@Column(name="RESOURCE_END_DATE")
+	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private Date projectEndDate;
+	
+	@Column(name="RESOURCE_ROLE_ID")
+	private int roleId;
+	
+
 
 	public int getResourceId() {
 		return resourceId;
@@ -110,11 +126,11 @@ public class ResourceDetail {
 		this.resourceEmail = resourceEmail;
 	}
 
-	public String getResourceDob() {
+	public Date getResourceDob() {
 		return resourceDob;
 	}
 
-	public void setResourceDob(String resourceDob) {
+	public void setResourceDob(Date resourceDob) {
 		this.resourceDob = resourceDob;
 	}
 
@@ -182,17 +198,14 @@ public class ResourceDetail {
 		this.projectEndDate = projectEndDate;
 	}
 
-	@Override
-	public String toString() {
-		return "ResourceDetail [resourceId=" + resourceId + ", resourceName=" + resourceName + ", resourceRoleObj="
-				+ resourceRoleObj + ", resourceExperience=" + resourceExperience + ", resourcePassword="
-				+ resourcePassword + ", resourceEmail=" + resourceEmail + ", resourceDob=" + resourceDob
-				+ ", resourceGender=" + resourceGender + ", resourceMaritalStatus=" + resourceMaritalStatus
-				+ ", resourcePhoneNumber=" + resourcePhoneNumber + ", resourceSkills=" + resourceSkills
-				+ ", resourceStatus=" + resourceStatus + ", resourceProjectObj=" + resourceProjectObj
-				+ ", projectStartDate=" + projectStartDate + ", projectEndDate=" + projectEndDate + "]";
+	public int getRoleId() {
+		return roleId;
 	}
 
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+	
 
 	
 }

@@ -5,5 +5,7 @@ import com.wfmanagement.models.Project;
 
 public interface ProjectService {
 	
-	public List <Project> getAllProject();	
+	public List <Project> getAllProject();
+
+	public void addProject(Project projectObj);	
 }

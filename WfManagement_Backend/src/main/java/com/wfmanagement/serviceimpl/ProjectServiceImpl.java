@@ -7,10 +7,12 @@ import com.wfmanagement.service.ProjectService;
 
 public class ProjectServiceImpl implements ProjectService {
 
-	
 	public List<Project> getAllProject() {
 		
 		return null;
 	}
 
+	public void addProject(Project projectObj) {
+		
+	}
 }
